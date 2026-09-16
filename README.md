@@ -71,6 +71,15 @@ todo el mundo con los primeros veinte contactos.
 
 Necesitás [Node 18 o más nuevo](https://nodejs.org).
 
+Para generar el PDF del CV hace falta un navegador. Si ya tenés Chrome o
+Edge instalado, no hay nada que hacer. Si no, o si estás en Linux:
+
+```bash
+npx playwright install chromium
+```
+
+El resto de los comandos no lo necesitan.
+
 ```bash
 git clone https://github.com/TU-USUARIO/laburo.git
 cd laburo

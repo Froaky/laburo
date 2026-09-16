@@ -152,7 +152,31 @@ que configuraste (y no el nombre interno del archivo).
   const exe = NAVEGADORES.find((x) => existsSync(x));
   console.log(`\n  Usando ${exe ? basename(exe) : 'el navegador de Playwright'}`);
 
-  const browser = await chromium.launch(exe ? { executablePath: exe } : {});
+  // Sin Edge/Chrome del sistema, Playwright usa el suyo, que se baja aparte.
+  // Es el tropiezo más probable en una máquina recién instalada (sobre todo
+  // en Linux), y el error que tira solo es largo y poco claro.
+  let browser;
+  try {
+    browser = await chromium.launch(exe ? { executablePath: exe } : {});
+  } catch (e) {
+    if (/Executable doesn't exist|playwright install/i.test(e.message)) {
+      console.error(`
+No encontré ningún navegador para armar el PDF.
+
+Tenés dos opciones:
+
+  1. Instalar Google Chrome o Microsoft Edge (lo más liviano si ya lo usás).
+  2. Bajar el navegador de Playwright:
+
+       npx playwright install chromium
+
+El HTML ya está generado en salida/${base}.html: lo podés abrir en cualquier
+navegador y usar "Imprimir → Guardar como PDF" mientras tanto.
+`);
+      process.exit(2);
+    }
+    throw e;
+  }
   const page = await browser.newPage();
   await page.goto('file:///' + p.replace(/\\/g, '/'), { waitUntil: 'networkidle' });
   await page.emulateMedia({ media: 'print' });
