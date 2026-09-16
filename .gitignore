@@ -1,0 +1,29 @@
+# ─────────────────────────────────────────────────────────────
+# TODO LO PERSONAL VA ACÁ. Nada de esto se sube nunca.
+#
+# Si publicás este repo con alguno de estos archivos adentro,
+# estás publicando los mails de tus contactos, tus tarifas, o
+# la clave de tu casilla. Eso no se arregla borrando el commit.
+#
+# `node laburo.mjs doctor` chequea que esto se esté respetando.
+# ─────────────────────────────────────────────────────────────
+
+config/*
+!config/.gitkeep
+
+data/*
+!data/.gitkeep
+
+salida/
+.env.local
+
+# Tu CV y tu portfolio son tuyos
+cv.md
+portfolio.md
+
+# Plantillas propias (las de ejemplo sí se versionan)
+plantillas/mias/
+
+node_modules/
+package-lock.json
+.DS_Store

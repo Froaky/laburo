@@ -1,0 +1,43 @@
+nombre: Administración, contabilidad y finanzas
+resumen: Administrativo, contable, impuestos, liquidación de sueldos, finanzas.
+
+destinatarios: >
+  Estudios contables (tercerizan mucho y siempre están desbordados en
+  vencimientos), pymes que crecieron y todavía llevan todo en planillas, y
+  consultoras que implementan sistemas de gestión y necesitan quien entienda
+  el proceso contable de verdad.
+
+fuentes:
+  - Consejos profesionales de ciencias económicas: padrón de matriculados
+  - Cámaras de comercio e industria de tu ciudad
+  - Parques industriales: listado de empresas radicadas
+  - Consultoras que implementan ERP y buscan perfiles funcionales
+
+evidencia:
+  - Volumen que manejaste (cuántas empresas, cuántos empleados, qué facturación)
+  - Cierres, auditorías o inspecciones que pasaste
+  - Sistemas que dominás, con la versión concreta
+  - Procesos que ordenaste y qué cambió después
+
+adjunto: CV
+
+modalidades:
+  - Mensual por empresa (el más común)
+  - Por hora (consultoría, puesta al día)
+  - Por trabajo puntual (un cierre, una auditoría, una migración)
+  - Relación de dependencia
+
+personalizacion: medio
+
+reglas_cv:
+  - id: sin-volumen
+    grave: false
+    porque: "en este rubro conviene decir el volumen: cuántas empresas, cuántos empleados"
+
+nota: |
+  Acá el timing importa más que en otros rubros: escribile a los estudios
+  contables ANTES de los vencimientos fuertes, no durante. En temporada no
+  te van a leer, y un mes antes están buscando manos.
+
+  La confianza vale más que la técnica. Si tenés referencias, pedilas y
+  nombralas: en este rubro alguien te está dando acceso a su plata.

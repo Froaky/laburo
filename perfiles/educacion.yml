@@ -1,0 +1,42 @@
+nombre: Educación y formación
+resumen: Docencia, capacitación corporativa, contenidos educativos, tutorías.
+
+destinatarios: >
+  Institutos y centros de formación privados, áreas de capacitación de
+  empresas medianas, plataformas de cursos online, editoriales educativas,
+  y colegios con proyectos especiales.
+
+fuentes:
+  - Listados de institutos habilitados por el ministerio de educación provincial
+  - Plataformas de cursos que contratan instructores
+  - Cámaras empresarias: suelen dar capacitación a sus socios
+  - Programas de formación de fundaciones y ONGs
+
+evidencia:
+  - Cuánta gente formaste y en qué
+  - Materiales propios que hayas armado
+  - Resultados de los alumnos, si los tenés medidos
+  - Formación específica en enseñanza, más allá del título de tu disciplina
+
+adjunto: CV
+
+modalidades:
+  - Por hora cátedra
+  - Por curso cerrado (diseño + dictado)
+  - Por módulo de contenido
+  - Mensual
+
+personalizacion: medio
+
+reglas_cv:
+  - id: sin-experiencia-dictado
+    grave: false
+    porque: "aclarar cuánta gente formaste y en qué formato (presencial, virtual, empresa)"
+
+nota: |
+  Distinguí bien dos cosas que se pagan muy distinto: dictar algo que ya
+  existe, y diseñar el programa. Si diseñás, cobralo aparte del dictado.
+
+  El calendario manda: los institutos arman el año en noviembre-diciembre y
+  los cuatrimestres en febrero y julio. Escribir en el medio del ciclo casi
+  no sirve; escribir un mes antes sirve mucho.

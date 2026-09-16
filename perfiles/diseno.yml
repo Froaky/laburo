@@ -1,0 +1,45 @@
+nombre: Diseño e imagen
+resumen: Gráfico, UX/UI, industrial, audiovisual, ilustración.
+
+destinatarios: >
+  Estudios de diseño, agencias, productoras, editoriales, y empresas con
+  producto propio que necesitan imagen sostenida en el tiempo. En estudios
+  chicos escribile al socio directamente: son dos o tres personas.
+
+fuentes:
+  - Behance y Dribbble filtrando por ciudad: ahí están los estudios locales
+  - Créditos de packaging, libros y sitios que te gusten
+  - Asociaciones de diseñadores y colegios profesionales
+  - Ferias de diseño y editoriales independientes
+
+evidencia:
+  - Portfolio, y que las primeras tres piezas sean las mejores
+  - Tu rol exacto en cada trabajo (no "participé en")
+  - Proceso, no sólo resultado: el boceto vende más que el render
+  - Trabajo real con clientes reales por encima de ejercicios de facultad
+
+adjunto: portfolio
+
+modalidades:
+  - Por pieza
+  - Por proyecto (identidad, sitio, colección)
+  - Retainer mensual
+  - Por hora (ajustes y mantenimiento)
+
+# ALTO: mandar el mismo mail a treinta estudios es lo contrario de lo que
+# se le pide a alguien que trabaja de mirar y decidir.
+personalizacion: alto
+
+reglas_cv:
+  - id: sin-portfolio
+    grave: true
+    requerido: 'http'
+    porque: sin link al portfolio, el CV de un disenador no dice nada
+
+nota: |
+  El portfolio pesa más que el CV, y las primeras tres piezas pesan más que
+  el resto junto. Si tenés un trabajo del que no estás orgulloso, sacalo:
+  te evalúan por lo peor que mostrás, no por lo mejor.
+
+  Mandá menos mails y mirá el trabajo de cada estudio antes de escribir. En
+  este rubro se nota inmediatamente quién miró y quién no.

@@ -1,0 +1,24 @@
+{
+  "name": "laburo",
+  "version": "1.0.0",
+  "description": "Buscar trabajo con método: a quién le escribiste, quién contestó, cuánto cobrás y qué aprendiste. Para cualquier profesión.",
+  "type": "module",
+  "bin": { "laburo": "./laburo.mjs" },
+  "scripts": {
+    "setup": "node laburo.mjs setup",
+    "hoy": "node laburo.mjs hoy",
+    "doctor": "node laburo.mjs doctor",
+    "test": "node test.mjs"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "optionalDependencies": {
+    "imapflow": "^1.0.0",
+    "nodemailer": "^7.0.0",
+    "playwright": "^1.40.0"
+  },
+  "keywords": ["busqueda-laboral", "cv", "outreach", "freelance", "empleo"],
+  "license": "MIT"
+}

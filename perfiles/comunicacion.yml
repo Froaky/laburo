@@ -1,0 +1,50 @@
+nombre: Comunicación, prensa y contenidos
+resumen: Redacción, prensa, community, contenidos, marketing.
+
+destinatarios: >
+  Agencias (de publicidad, prensa, contenidos), estudios de diseño que
+  tercerizan texto, productoras, editoriales, y áreas de marketing de empresas
+  medianas que no tienen equipo propio. En agencias, buscá al director de
+  cuentas o al líder de contenidos, no a la casilla general.
+
+fuentes:
+  - Rankings y anuarios de agencias del país
+  - Cámaras de agencias de publicidad y de marketing digital
+  - Créditos de campañas que te gusten: ahí está el nombre de la agencia
+  - Revistas del rubro (quién ganó qué premio, quién abrió oficina)
+  - Newsletters de marketing: suelen listar agencias y estudios chicos
+
+evidencia:
+  - Links a piezas publicadas, con tu rol explícito en cada una
+  - Marcas o medios donde salió tu trabajo
+  - Números cuando existan (alcance, crecimiento, tiempo de gestión)
+  - Un caso corto: qué pedía el cliente, qué hiciste, qué pasó después
+
+adjunto: portfolio
+
+modalidades:
+  - Por pieza (nota, guion, posteo)
+  - Por campaña
+  - Mensual (community management, prensa continua)
+  - Por hora (consultoría, capacitación)
+
+# ALTO: un mail de plantilla, mandado por alguien que vende criterio y voz,
+# es evidencia en contra de quien lo manda. El sistema no te deja mandar
+# tandas idénticas sin al menos una línea propia por destinatario.
+personalizacion: alto
+
+reglas_cv:
+  - id: sin-links
+    grave: true
+    requerido: 'http'
+    porque: en comunicación el trabajo es la prueba; sin links al trabajo no hay caso
+
+nota: |
+  Tres cosas honestas sobre el mail en frío en este rubro:
+
+  1. La oferta de gente es alta respecto de la demanda. Esperá una tasa de
+     respuesta más baja que en rubros técnicos, y no lo leas como fracaso.
+  2. El "info@" de una agencia cae en administración, que no contrata a nadie.
+     Vale mucho más conseguir un nombre que sumar veinte casillas genéricas.
+  3. Tu mail ES una muestra de trabajo. Si está escrito con desgano, ya
+     contestaste la pregunta que te iban a hacer. Menos mails, mejor escritos.

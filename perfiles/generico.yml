@@ -1,0 +1,48 @@
+nombre: Genérico
+resumen: Si ninguno de los otros perfiles encaja, empezá por acá y ajustalo.
+
+# A quién se le escribe en frío en tu rubro.
+destinatarios: >
+  Empresas o estudios donde tu trabajo sea parte de lo que venden o de lo que
+  necesitan puertas adentro. No a "recursos humanos" en general: a quien tiene
+  el problema que vos resolvés.
+
+# De dónde sale la lista. Armarla es el trabajo más aburrido y el que más rinde.
+fuentes:
+  - Cámaras y asociaciones del rubro (suelen publicar el padrón de socios)
+  - Directorios de proveedores de empresas grandes
+  - Buscar en LinkedIn por rubro + ciudad y anotar los sitios propios
+  - Ferias, congresos y rondas de negocios: las listas de expositores son oro
+
+# Qué convence en un primer mail. Poné cosas verificables, no adjetivos.
+evidencia:
+  - Algo que hiciste con un resultado que se pueda chequear
+  - Volumen o escala (cuántos, cuánto tiempo, para cuántas personas)
+  - Un problema concreto que resolviste y cómo
+
+adjunto: CV
+
+# Cómo se cobra en el rubro. Sirve para no quedar pagando de menos.
+modalidades:
+  - Por hora
+  - Por proyecto cerrado
+  - Mensual
+
+# Cuánta personalización necesita cada mail: bajo | medio | alto
+# En "alto", el sistema te frena si mandás un texto idéntico a todos.
+personalizacion: medio
+
+# Reglas iniciales para revisar tu CV. Agregá las tuyas apenas corrijas algo.
+reglas_cv:
+  - id: sin-telefono
+    grave: true
+    requerido: '[0-9]{6}'
+    porque: el CV no tiene ningún número de teléfono
+
+nota: |
+  Dos cosas que valen para cualquier rubro:
+
+  1. El canal que mejor funciona casi nunca es el portal de empleos. Es el
+     mail directo a alguien que tiene el problema, y las recomendaciones.
+  2. Lo que te hace perder oportunidades no suele ser el primer mail: es no
+     seguir las respuestas. La gente contesta, pasan cinco días, y se enfría.

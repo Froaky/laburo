@@ -1,0 +1,46 @@
+nombre: Desarrollo de software y datos
+resumen: Programación, datos, infraestructura, QA, soporte técnico.
+
+destinatarios: >
+  Consultoras y software factories que revenden capacidad técnica, partners
+  certificados de las tecnologías que manejás (son los que más rápido
+  contestan porque venden horas), y áreas de sistemas in-house de empresas
+  medianas que no dan abasto.
+
+fuentes:
+  - Directorios de partners oficiales (Odoo, SAP, Salesforce, AWS, Microsoft)
+  - Polos y clusters tecnológicos provinciales
+  - Cámaras de software del país
+  - Ofertas cerradas: si buscaban tu perfil hace tres meses, el problema sigue
+
+evidencia:
+  - Volumen verificable (commits, módulos, usuarios en producción, filas)
+  - Migraciones o rescates: qué estaba roto y cómo quedó
+  - Repositorios públicos, aunque sean chicos
+  - Números de escala: cuántos usuarios, cuántos registros, cuánto tiempo
+
+adjunto: CV
+
+modalidades:
+  - Por hora
+  - Por proyecto cerrado (estimación de horas y precio fijo)
+  - Paquete de horas mensuales (mantenimiento y soporte)
+  - Relación de dependencia
+
+# MEDIO: acá el mail idéntico funciona razonablemente, porque lo que se vende
+# es una capacidad técnica verificable y quien lee busca exactamente eso.
+personalizacion: medio
+
+reglas_cv:
+  - id: version-tecnologia
+    grave: false
+    porque: "revisá que las versiones que nombrás sean las que usaste de verdad"
+
+nota: |
+  Lo que hace funcionar el mail en frío en este rubro es que los números son
+  la prueba. "358 commits sobre 80 módulos en produccion para 120 usuarios"
+  no se puede inventar y se chequea en dos minutos. Escribí así.
+
+  Ojo con una trampa: las consultoras te van a pedir tarifa antes de tener un
+  proyecto. Ese primer numero queda de ancla para siempre. Tenelo decidido
+  ANTES de que te pregunten, en config/rates.yml.
