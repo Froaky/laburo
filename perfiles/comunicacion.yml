@@ -36,7 +36,9 @@ personalizacion: alto
 reglas_cv:
   - id: sin-links
     grave: true
-    requerido: 'http'
+    # Acepta http://, www. o un dominio suelto (medio.com/nota), que es como
+    # la mayoría escribe el link en su CV.
+    requerido: '(https?://|www\.|[a-z0-9-]+\.[a-z]{2,}/)'
     porque: en comunicación el trabajo es la prueba; sin links al trabajo no hay caso
 
 nota: |

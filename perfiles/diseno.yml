@@ -33,8 +33,10 @@ personalizacion: alto
 reglas_cv:
   - id: sin-portfolio
     grave: true
-    requerido: 'http'
-    porque: sin link al portfolio, el CV de un disenador no dice nada
+    # Acepta http://, www. o un dominio suelto (ejemplo.test/portfolio), que es
+    # como la mayoría escribe el link en su CV.
+    requerido: '(https?://|www\.|[a-z0-9-]+\.[a-z]{2,}/)'
+    porque: sin link al portfolio, el CV de un diseñador no dice nada
 
 nota: |
   El portfolio pesa más que el CV, y las primeras tres piezas pesan más que
