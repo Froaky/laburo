@@ -10,6 +10,7 @@
 import { existsSync, readFileSync } from 'fs';
 import { ruta, yo, tarifas, leerTsv, hoy as fHoy, dias, titulo, corto } from '../lib/base.mjs';
 import { leer as leerContactos } from './contactos.mjs';
+import { leer as leerPostulaciones, VIVOS as POSTU_VIVOS, CERRADOS } from './postulaciones.mjs';
 
 const COLS_AGENDA = ['fecha', 'quien', 'que'];
 
@@ -50,6 +51,23 @@ export default async function hoyCmd() {
     }
     if (vencidas.length) {
       console.log(`\n  ${vencidas.length} acción(es) vencida(s):  node laburo.mjs contactos`);
+    }
+  }
+
+  // ── Postulaciones ──────────────────────────────────────────────────────
+  const postu = leerPostulaciones();
+  if (postu.length) {
+    const enProceso = postu.filter((f) => POSTU_VIVOS.includes(f.estado));
+    const vencidasP = postu.filter((f) => f.fecha_accion && f.fecha_accion <= fHoy() && !CERRADOS.includes(f.estado));
+    const esperando = postu.filter((f) => f.estado === 'Postulado');
+
+    titulo('POSTULACIONES');
+    console.log(`  ${postu.length} en total · ${enProceso.length} en proceso · ${esperando.length} sin respuesta`);
+    for (const f of enProceso) {
+      console.log(`  ${corto(f.estado, 13)} ${corto(f.empresa, 22)} ${corto(f.puesto, 28)}`);
+    }
+    if (vencidasP.length) {
+      console.log(`\n  ${vencidasP.length} para mover hoy:  node laburo.mjs postulaciones`);
     }
   }
 

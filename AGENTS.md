@@ -82,6 +82,15 @@ para que ese error no vuelva:
 
 Después:  `node laburo.mjs cv revisar`
 
+### Los dos trackers son distintos y no se mezclan
+
+`contactos` es mail en frío: la persona escribe primero, sin que haya puesto
+abierto. `postulaciones` es un aviso publicado, con competencia. Las tasas de
+respuesta de los dos no se comparan, y promediarlas no dice nada.
+
+Cuando un contacto en frío se convierte en un proceso real, pasalo a
+`postulaciones`.
+
 ### Nunca revises una muestra y digas "está todo bien"
 
 Este es el error más común y el más caro. Si hay 30 archivos, se revisan los
@@ -130,6 +139,7 @@ hecho y qué no, sin adornar.
 | `config/` | quién es, cuánto cobra, qué no puede decir su CV. **Gitignoreado** |
 | `data/` | contactos, agenda, memoria, archivo de envíos. **Gitignoreado** |
 | `perfiles/` | particularidades por profesión |
+| `plantillas/cv/` | plantillas de CV (HTML con {{campos}}) |
 | `plantillas/` | cuerpos de mail con `{{campos}}` |
 | `cmd/` | un archivo por comando |
 | `lib/base.mjs` | rutas, config, TSV, fechas |

@@ -93,7 +93,9 @@ para adaptar. Agregar el tuyo es copiar un `.yml` en `perfiles/`.
 | | |
 |---|---|
 | `hoy` | qué hay que hacer hoy — empezá por acá |
-| `contactos` | a quién le escribiste, quién contestó, a quién le debés algo |
+| `contactos` | mail en frío: a quién le escribiste y quién contestó |
+| `postulaciones` | avisos publicados: en qué etapa está cada uno |
+| `entrevista` | fichas de preparación y banco de historias |
 | `mail` | mandar y detectar respuestas |
 | `cv` | revisar que todas tus versiones digan lo mismo, y generar el PDF |
 | `aprender` | la memoria: lo que sabe de vos y de lo que funciona |
@@ -132,6 +134,7 @@ salió y qué no, en vez de suponerlo.
 ### CV
 
 ```bash
+node laburo.mjs cv nuevo mi-cv                       # de cv.md a HTML con diseño
 node laburo.mjs cv revisar --arreglar
 node laburo.mjs cv generar mi-cv --para "Estudio Vera - Diseñador"
 ```

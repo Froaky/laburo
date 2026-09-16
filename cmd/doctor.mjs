@@ -21,6 +21,9 @@ const SENSIBLES = [
   ['data/enviados.tsv', 'qué le mandaste a cada uno'],
   ['data/aprendido.md', 'todo lo que el sistema sabe de vos'],
   ['data/agenda.tsv', 'tus compromisos'],
+  ['data/postulaciones.tsv', 'a qué avisos te postulaste'],
+  ['data/historias.md', 'tus historias personales'],
+  ['data/entrevistas', 'tus fichas de entrevista'],
   ['cv.md', 'tu CV'],
 ];
 

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>{{nombre}} — CV</title>
+<style>
+  /* Sin fuentes externas a propósito: el PDF tiene que salir igual en
+     cualquier máquina, sin descargar nada ni depender de internet. */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 10.5px;
+    line-height: 1.5;
+    color: #1f2430;
+    background: #fff;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 14mm 15mm;
+    background: #fff;
+  }
+
+  /* Encabezado */
+  .encabezado { border-bottom: 2px solid {{color}}; padding-bottom: 9px; margin-bottom: 14px; }
+  .encabezado h1 {
+    font-size: 26px; font-weight: 700; letter-spacing: -0.02em;
+    line-height: 1.1; margin-bottom: 4px;
+  }
+  .rol { font-size: 12px; color: {{color}}; font-weight: 600; margin-bottom: 7px; }
+  .datos { font-size: 9.5px; color: #55607a; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  .datos a { color: #55607a; text-decoration: none; }
+
+  /* Cuerpo */
+  h2 {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em;
+    color: {{color}}; margin: 15px 0 7px; padding-bottom: 3px;
+    border-bottom: 1px solid #e3e7ef;
+  }
+  h3 { font-size: 11.5px; font-weight: 700; margin: 10px 0 1px; }
+  h4 { font-size: 10.5px; font-weight: 600; color: #55607a; margin: 7px 0 1px; }
+
+  p { margin-bottom: 6px; }
+  ul { margin: 3px 0 8px 15px; }
+  li { margin-bottom: 2.5px; }
+  a { color: {{color}}; }
+  strong { font-weight: 700; }
+  code {
+    font-family: Consolas, monospace; font-size: 9.5px;
+    background: #f2f4f8; padding: 1px 4px; border-radius: 3px;
+  }
+  hr { border: none; border-top: 1px solid #e3e7ef; margin: 11px 0; }
+
+  /* Que un trabajo no se parta entre dos hojas.
+     Ojo: NO poner esto en las secciones enteras, porque empuja secciones
+     completas a una hoja nueva y te deja una página casi vacía. */
+  h3 { break-after: avoid; }
+  h3 + ul, h4 + ul { break-before: avoid; }
+
+  @media print {
+    @page { size: A4; margin: 0; }
+    .page { width: 210mm; min-height: 0; margin: 0; padding: 14mm 15mm; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="encabezado">
+    <h1>{{nombre}}</h1>
+    <div class="rol">{{titulo}}</div>
+    <div class="datos">{{datos_html}}</div>
+  </header>
+
+{{contenido}}
+
+</main>
+</body>
+</html>

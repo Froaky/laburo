@@ -11,9 +11,11 @@ import { parsearArgs } from './lib/base.mjs';
 const COMANDOS = {
   setup: ['configurar por primera vez', './cmd/setup.mjs'],
   hoy: ['qué hay que hacer hoy (empezá por acá)', './cmd/hoy.mjs'],
-  contactos: ['a quién le escribiste y quién contestó', './cmd/contactos.mjs'],
+  contactos: ['a quién le escribiste en frío y quién contestó', './cmd/contactos.mjs'],
+  postulaciones: ['los avisos a los que te postulaste', './cmd/postulaciones.mjs'],
   mail: ['mandar mails y detectar respuestas', './cmd/mail.mjs'],
-  cv: ['revisar y generar tu CV', './cmd/cv.mjs'],
+  cv: ['armar, revisar y generar tu CV', './cmd/cv.mjs'],
+  entrevista: ['prepararte, y el banco de historias', './cmd/entrevista.mjs'],
   aprender: ['lo que el sistema sabe de vos y de lo que funciona', './cmd/aprender.mjs'],
   doctor: ['chequear que no estés por filtrar datos', './cmd/doctor.mjs'],
 };
@@ -26,7 +28,7 @@ laburo — buscar trabajo con método
 
 `);
   for (const [nombre, [desc]] of Object.entries(COMANDOS)) {
-    console.log(`  ${nombre.padEnd(12)} ${desc}`);
+    console.log(`  ${nombre.padEnd(14)} ${desc}`);
   }
   console.log(`
 Si es tu primera vez:

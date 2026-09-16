@@ -169,6 +169,56 @@ correr('avisa si el perfil pide personalización alta', ['mail', 'probar',
   '--plantilla', 'plantillas/molde.md', '--para', 'cuatro@ejemplo.test'],
   { contiene: 'personalización ALTA' });
 
+// ── postulaciones ─────────────────────────────────────────────────────────
+correr('agregar postulación', ['postulaciones', 'agregar', '--empresa', 'Agencia Vera',
+  '--puesto', 'Redactora', '--donde', 'LinkedIn', '--estado', 'Postulado'],
+  { contiene: 'Te aviso el' });
+correr('frena la postulación duplicada', ['postulaciones', 'agregar', '--empresa', 'agencia vera',
+  '--puesto', 'REDACTORA'], { puedeFallar: true, contiene: 'se nota y resta' });
+correr('cambiar de etapa recalcula el seguimiento', ['postulaciones', 'marcar', 'Agencia Vera',
+  '--estado', 'Entrevista'], { contiene: 'seguir el' });
+correr('estado de postulaciones', ['postulaciones'], { contiene: 'EN PROCESO' });
+correr('números de postulaciones', ['postulaciones', 'numeros'], { contiene: 'Entrevistas' });
+
+// ── entrevista ────────────────────────────────────────────────────────────
+correr('ficha de entrevista', ['entrevista', 'ficha', 'Agencia Vera'], { contiene: 'Creada' });
+correr('no pisa una ficha existente', ['entrevista', 'ficha', 'Agencia Vera'], { contiene: 'Ya existe' });
+correr('agregar historia', ['entrevista', 'historias', 'La vez que rehice algo a último momento'],
+  { contiene: 'Completala' });
+correr('avisa si hay pocas historias', ['entrevista', 'historias'], { contiene: 'Con menos de 5' });
+
+// ── cv: de markdown a HTML ────────────────────────────────────────────────
+writeFileSync(join(BOX, 'cv.md'), `# Ana Prueba Gutierrez
+
+## Perfil
+
+Lic. en Comunicacion con experiencia en prensa. Portfolio en ejemplo.test/ana
+
+## Experiencia
+
+### Agencia Norte — Redactora
+#### 2022 - actualidad
+
+- Contenidos para **6 marcas**, con calendario propio.
+`);
+const nuevoCv = correr('cv nuevo desde markdown', ['cv', 'nuevo', 'mi-cv'], { contiene: 'escrito: salida' });
+if (existsSync(join(BOX, 'salida/mi-cv.html'))) {
+  const generado = readFileSync(join(BOX, 'salida/mi-cv.html'), 'utf8');
+  const chequeos = [
+    ['convierte títulos', generado.includes('<h2>Perfil</h2>')],
+    ['convierte negrita', generado.includes('<strong>6 marcas</strong>')],
+    ['convierte listas', generado.includes('<li>')],
+    ['mete el nombre en el encabezado', generado.includes('<h1>Ana Prueba Gutierrez</h1>')],
+    ['no repite el nombre en el cuerpo', (generado.match(/Ana Prueba Gutierrez/g) || []).length <= 2],
+    ['no deja marcadores sin llenar', !/\{\{\w+\}\}/.test(generado)],
+    ['no deja spans vacíos', !generado.includes('<span></span>')],
+  ];
+  for (const [desc, pasa] of chequeos) {
+    if (pasa) { console.log(`  ok    ${desc}`); ok++; }
+    else { console.log(`  FALLA ${desc}`); fallos++; }
+  }
+} else { console.log('  FALLA no generó el HTML'); fallos++; }
+
 // ── cierre ────────────────────────────────────────────────────────────────
 rmSync(BOX, { recursive: true, force: true });
 console.log(`\n  ${ok} pasaron, ${fallos} fallaron\n`);

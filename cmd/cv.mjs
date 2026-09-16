@@ -185,11 +185,104 @@ que configuraste (y no el nombre interno del archivo).
   console.log('');
 }
 
+/**
+ * nuevo — de cv.md a un HTML con diseño.
+ *
+ * Sin esto, `cv revisar` y `cv generar` esperaban un HTML que nadie sabía de
+ * dónde sacar. Para alguien que tiene su CV en Word era un callejón sin
+ * salida. Ahora el camino es: escribís markdown, sale un PDF con diseño.
+ */
+async function nuevo({ flags, sueltos }) {
+  const nombre = sueltos[1];
+  if (!nombre) {
+    console.log(`
+  cv nuevo <nombre> [--plantilla <archivo>] [--desde <archivo.md>]
+
+Toma tu cv.md, le aplica una plantilla y escribe salida/<nombre>.html.
+Después lo revisás, lo ajustás a mano si querés, y lo pasás a PDF:
+
+  node laburo.mjs cv nuevo mi-cv
+  node laburo.mjs cv generar mi-cv --para "Empresa - Puesto"
+`);
+    return;
+  }
+
+  const { markdownAHtml } = await import('../lib/markdown.mjs');
+  const cfg = await yo();
+  const origen = flags.desde || ruta('cv.md');
+
+  if (!existsSync(origen)) {
+    console.error(`
+No existe ${origen}
+
+Escribí tu CV en cv.md, en markdown. Algo así:
+
+  ## Perfil
+
+  Dos o tres líneas sobre qué hacés y para quién.
+
+  ## Experiencia
+
+  ### Empresa — Puesto
+  #### 2023 - actualidad
+
+  - Algo que hiciste, con el resultado
+  - Algo que hiciste, con la escala
+
+  ## Formación
+
+  ### Título — Institución (año)
+`);
+    process.exit(2);
+  }
+
+  const plantillaRuta = flags.plantilla || ruta('plantillas/cv/clasico.html');
+  if (!existsSync(plantillaRuta)) { console.error(`\nNo existe ${plantillaRuta}\n`); process.exit(2); }
+
+  let md = readFileSync(origen, 'utf8');
+  // Si el markdown arranca con "# Nombre", eso ya va en el encabezado.
+  md = md.replace(/^\s*#\s+.+\n/, '');
+
+  const id = cfg.identidad;
+  // Se arma acá y no en la plantilla para no dejar <span></span> de los
+  // campos que la persona no cargó: en un flex con gap, cada vacío abre un
+  // hueco visible en la línea de contacto.
+  const datos = [id.ubicacion, id.email, id.telefono]
+    .filter(Boolean)
+    .map((x) => `<span>${x}</span>`)
+    .concat((id.links || []).filter(Boolean).map((l) => {
+      const url = /^https?:\/\//.test(l) ? l : `https://${l}`;
+      return `<a href="${url}">${l}</a>`;
+    }))
+    .join('\n      ');
+
+  const html = readFileSync(plantillaRuta, 'utf8')
+    .replace(/\{\{contenido\}\}/g, markdownAHtml(md))
+    .replace(/\{\{datos_html\}\}/g, '\n      ' + datos + '\n    ')
+    .replace(/\{\{color\}\}/g, cfg.entrega?.color || '#1d4ed8')
+    .replace(/\{\{(\w+)\}\}/g, (m, k) => id[k] ?? '');
+
+  mkdirSync(SALIDA, { recursive: true });
+  const destino = join(SALIDA, nombre + '.html');
+  writeFileSync(destino, html);
+  console.log(`\n  escrito: salida/${nombre}.html`);
+
+  const rs = await reglas();
+  const malas = chequear(html, rs);
+  if (malas.length) {
+    console.log(`\n  ${malas.length} cosa(s) para revisar:`);
+    for (const r of malas) console.log(`    ${r.grave ? 'GRAVE' : 'leve '}  ${r.id}: ${r.porque}`);
+  }
+  console.log(`\n  Ahora:  node laburo.mjs cv generar ${nombre} --para "Empresa - Puesto"\n`);
+}
+
 export default async function cv(ctx) {
   const sub = ctx.sueltos[0];
+  if (sub === 'nuevo') return nuevo(ctx);
   if (sub === 'revisar') return revisar(ctx);
   if (sub === 'generar') return generar(ctx);
   console.log(`
+  cv nuevo <nombre>                de cv.md a un HTML con diseño
   cv revisar [--arreglar]          chequear TODOS los archivos de salida/
   cv generar <nombre> [--para X]   HTML a PDF, con la copia lista para adjuntar
 
