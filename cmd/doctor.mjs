@@ -74,8 +74,7 @@ export default async function doctor() {
 
   titulo('DEPENDENCIAS');
   const tiene = (d) => existsSync(ruta('node_modules', d));
-  if (!tiene('js-yaml')) mal('falta js-yaml (obligatoria)', 'npm install');
-  else ok('js-yaml');
+  ok('el núcleo no necesita ninguna dependencia');
   for (const [d, para] of [['nodemailer', 'mandar mails'], ['imapflow', 'leer respuestas'],
                            ['playwright', 'generar PDF']]) {
     if (tiene(d)) ok(`${d}`);

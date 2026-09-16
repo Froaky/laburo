@@ -50,7 +50,8 @@ function correr(desc, args, opciones = {}) {
 rmSync(BOX, { recursive: true, force: true });
 mkdirSync(BOX, { recursive: true });
 for (const d of ['lib', 'cmd', 'perfiles', 'plantillas', 'node_modules']) {
-  cpSync(join(RAIZ, d), join(BOX, d), { recursive: true });
+  // node_modules puede no existir: el núcleo no lo necesita.
+  if (existsSync(join(RAIZ, d))) cpSync(join(RAIZ, d), join(BOX, d), { recursive: true });
 }
 cpSync(join(RAIZ, 'laburo.mjs'), join(BOX, 'laburo.mjs'));
 cpSync(join(RAIZ, '.gitignore'), join(BOX, '.gitignore'));

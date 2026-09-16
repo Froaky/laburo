@@ -11,13 +11,13 @@ fuentes:
   - Directorios de partners oficiales (Odoo, SAP, Salesforce, AWS, Microsoft)
   - Polos y clusters tecnológicos provinciales
   - Cámaras de software del país
-  - Ofertas cerradas: si buscaban tu perfil hace tres meses, el problema sigue
+  - 'Ofertas cerradas: si buscaban tu perfil hace tres meses, el problema sigue'
 
 evidencia:
   - Volumen verificable (commits, módulos, usuarios en producción, filas)
-  - Migraciones o rescates: qué estaba roto y cómo quedó
+  - 'Migraciones o rescates: qué estaba roto y cómo quedó'
   - Repositorios públicos, aunque sean chicos
-  - Números de escala: cuántos usuarios, cuántos registros, cuánto tiempo
+  - 'Números de escala: cuántos usuarios, cuántos registros, cuánto tiempo'
 
 adjunto: CV
 

@@ -71,20 +71,18 @@ todo el mundo con los primeros veinte contactos.
 
 Necesitás [Node 18 o más nuevo](https://nodejs.org).
 
-Para generar el PDF del CV hace falta un navegador. Si ya tenés Chrome o
-Edge instalado, no hay nada que hacer. Si no, o si estás en Linux:
-
-```bash
-npx playwright install chromium
-```
-
-El resto de los comandos no lo necesitan.
-
 ```bash
 git clone https://github.com/TU-USUARIO/laburo.git
 cd laburo
-npm install
 node laburo.mjs setup
+```
+
+**No hay `npm install`.** El núcleo no depende de nada: clonás y usás.
+Sólo dos cosas piden instalar algo, y sólo cuando las usás:
+
+```bash
+npm install nodemailer imapflow   # para mandar mails y leer respuestas
+npx playwright install chromium   # sólo si no tenés Chrome ni Edge
 ```
 
 El setup pregunta a qué te dedicás y ajusta todo a tu rubro: dónde buscar
@@ -180,6 +178,21 @@ Los datos se guardan en TSV: se abren en cualquier planilla y se arreglan a
 mano. Nadie debería necesitar una herramienta para reparar sus propios datos.
 
 No hay servidor, no hay cuenta, no hay telemetría. Corre en tu máquina.
+
+## Con una IA, como skill
+
+El repo trae la skill lista. En Claude Code, OpenCode o cualquier CLI que siga
+el [estándar de skills](https://agentskills.io):
+
+```
+/laburo
+/laburo contactos
+/laburo cv
+```
+
+La definición está en `.agents/skills/laburo/SKILL.md` y le dice al asistente
+que lea tu memoria antes de opinar, que anote lo que le corrijas, que no
+invente números y que no mande nada sin mostrártelo.
 
 ## Con una IA
 
