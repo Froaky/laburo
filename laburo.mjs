@@ -31,9 +31,8 @@ laburo — buscar trabajo con método
     console.log(`  ${nombre.padEnd(14)} ${desc}`);
   }
   console.log(`
-Si es tu primera vez:
+Si es tu primera vez (no hace falta instalar nada):
 
-  npm install
   node laburo.mjs setup
 
 Cada comando sin argumentos explica lo suyo:

@@ -69,6 +69,9 @@ todo el mundo con los primeros veinte contactos.
 
 ## Arranque
 
+> **¿Primera vez, o nunca usaste una terminal?** Andá directo a
+> **[EMPEZAR.md](EMPEZAR.md)**: el instructivo paso a paso de la primera semana.
+
 Necesitás [Node 18 o más nuevo](https://nodejs.org).
 
 ```bash
