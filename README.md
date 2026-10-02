@@ -72,7 +72,7 @@ todo el mundo con los primeros veinte contactos.
 Necesitás [Node 18 o más nuevo](https://nodejs.org).
 
 ```bash
-git clone https://github.com/TU-USUARIO/laburo.git
+git clone https://github.com/Froaky/laburo.git
 cd laburo
 node laburo.mjs setup
 ```
